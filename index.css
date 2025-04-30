@@ -1,3 +1,61 @@
-h1 {
-  color: crimson;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo-img {
+  width: 100px;
+}
+
+.nav-items {
+  padding: 0px 20px;
+}
+
+.nav-items > ul {
+  font-size: 20px;
+  display: flex;
+  list-style: none;
+}
+
+.nav-items > ul > li {
+  margin: 10;
+  padding: 10;
+}
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.res-card {
+  margin: 5px;
+
+  width: 270px;
+  padding: 10px;
+}
+
+.res-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.res-img {
+  height: 190px;
+  width: 260px;
+  margin: 5px;
+}
+
+.footer {
+  background-color: bisque;
+  padding: 5px;
+  text-align: center;
+}
+
+.small {
+  display: flex;
+}
+
+h5 {
+  padding-right: 20px;
+  margin: 5px;
 }
