@@ -1,11 +1,9 @@
-import resList from "../utils/mockData";
 import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } =
     resData?.info;
-  console.log(props);
   return (
     <div className="res-card" style={{ backgroundColor: "#d4c6b4" }}>
       <img

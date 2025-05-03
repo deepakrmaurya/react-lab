@@ -8,7 +8,7 @@ const AppLayout = () => (
   <div id="container">
     <Header />
     <Body />
-    <h1>Hello this is React Component</h1>
+    {/* <h1>Hello this is React Component</h1> */}
     <Footer />
   </div>
 );
