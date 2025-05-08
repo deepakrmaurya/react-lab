@@ -95,3 +95,9 @@ h5 {
   padding: 10px 20px;
   cursor: pointer;
 }
+
+.user-card {
+  border: 1px black solid;
+  margin: 5px;
+  padding: 5px;
+}
