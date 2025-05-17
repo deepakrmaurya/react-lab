@@ -9,6 +9,7 @@ import Contacts from "./Components/Contacts";
 import Error from "./Components/Error";
 import Cartpage from "./Components/Cartpage";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import "./index.css";
 // import Grocery from "./Components/Grocery";
 
 const Grocery = lazy(() => import("./Components/Grocery"));

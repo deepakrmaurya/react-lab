@@ -5,21 +5,31 @@ const RestaurantCard = (props) => {
   const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } =
     resData?.info;
   return (
-    <div className="res-card" style={{ backgroundColor: "#d4c6b4" }}>
-      <img
-        className="res-img"
-        src={CDN_URL + resData?.info?.cloudinaryImageId}
-      />
-      <h3>{resData?.info?.name}</h3>
-      <h5>{resData?.info?.cuisines.join(", ")}</h5>
+    <div className="res-card m-4 p-4 w-[300px] h-[500px] bg-gray-300 hover:bg-slate-400 rounded-lg">
+      <img className="res-img rounded-md" src={CDN_URL + cloudinaryImageId} />
+      <h3 className="py-2 font-bold">{name}</h3>
+      <h5>{cuisines.join(", ")}</h5>
       <h5>{resData?.info?.locality}</h5>
-      <div className="small">
-        <h5>{resData?.info?.costForTwo}</h5>
-        <h5>⭐{resData?.info?.avgRating}</h5>
-        <h5>{resData?.info?.sla.deliveryTime} minutes</h5>
+      <div className="py-2 flex">
+        <h5 className="p-1">{costForTwo} ·</h5>
+        <h5 className="p-1">⭐{avgRating} ·</h5>
+        <h5 className="p-1">{resData?.info?.sla.deliveryTime} minutes</h5>
       </div>
     </div>
   );
+};
+
+export const withTopRatedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white ml-6 mt-2 p-2 rounded-lg">
+          Top Rated
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
