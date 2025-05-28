@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -10,18 +10,35 @@ import Error from "./Components/Error";
 import Cartpage from "./Components/Cartpage";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import "./index.css";
+import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocery from "./Components/Grocery";
 
 const Grocery = lazy(() => import("./Components/Grocery"));
 
-const AppLayout = () => (
-  <div id="container">
-    <Header />
-    <Outlet />
-    {/* <h1>Hello this is React Component</h1> */}
-    <Footer />
-  </div>
-);
+const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Deepak Maurya",
+    };
+    setUserName(data.name);
+  }, []);
+  return (
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div id="container">
+          <Header />
+          <Outlet />
+          {/* <h1>Hello this is React Component</h1> */}
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
